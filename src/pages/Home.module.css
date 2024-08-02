@@ -1,50 +1,99 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 body {
-  margin: 16px 32px;
-
+  margin: 0;
+  padding: 0;
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
     "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
     "Malgun Gothic", sans-serif;
 
   display: flex;
-  width: 1320px;
-  height: 928px;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+
+  width: 100vw;
+  height: 100vh;
 }
 
 .Home {
   background-color: white;
-  width: 100%;
-  height: 928px;
   border-radius: 35px;
+  border: 1px solid black;
+  height: 90vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Home_Container {
   display: flex;
   flex-direction: column;
-
-  margin: 0px auto;
+  align-items: center;
+  align-items: flex-start;
 }
 
 .Logo {
   color: #6480e6;
-
   font-size: 100px;
-  line-height: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.Logo p {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
 }
 
 .menu_inp {
   display: flex;
   border: 2px solid black;
+  width: 810px;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .menu_inp input {
-  width: 850px;
-  height: 50px;
+  flex: 1;
   border: none;
+  font-size: 16px;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.menu_inp input:focus {
+  outline: none;
+}
+
+.menu_inp input::placeholder {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+
+  font-size: 20px;
+}
+
+.menu_inp button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  height: 100%;
+  background-color: #989898;
+  border-left: 2px solid black;
+
+  width: 50px;
+}
+
+.menu_inp button:hover {
+  background-color: #d9d9d9;
 }
 
 .menu_inp img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 0px auto;
 }
