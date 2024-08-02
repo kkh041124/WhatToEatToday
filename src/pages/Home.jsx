@@ -1,3 +1,4 @@
+import DropBox from "../component/DropBox";
 import styles from "./Home.module.css";
 
 const Home = () => {
@@ -17,6 +18,26 @@ const Home = () => {
             <button>
               <img src="./src/assets/search_icon.png" alt="search_icon" />
             </button>
+          </div>
+        </div>
+        <div className={styles.DropBox}>
+          <div className={styles.DropBox_container}>
+            <DropBox
+              options={["한식", "중식", "양식", "일식"]}
+              content={"음식 장르"}
+            />
+            <DropBox
+              options={["한식", "중식", "양식", "일식"]}
+              content={"육식 종류"}
+            />
+            <DropBox
+              options={["한식", "중식", "양식", "일식"]}
+              content={"요리 종류"}
+            />
+            <DropBox
+              options={["한식", "중식", "양식", "일식"]}
+              content={"맵기"}
+            />
           </div>
         </div>
       </div>
