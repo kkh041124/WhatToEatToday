@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./DropBox.module.css";
+import arrow from "./static/Arrow.svg";
+import check from "../assets/check.png";
 
 const DropBox = ({ options, content }) => {
   const [selectedOption, setSelectedOption] = useState([]);
@@ -19,7 +21,12 @@ const DropBox = ({ options, content }) => {
   return (
     <div className={styles.DropBox}>
       <button onClick={handleSelected}>
-        {content} {isSelected ? "▲" : "▼"}
+        {content}{" "}
+        {isSelected ? (
+          <img src={arrow} />
+        ) : (
+          <img src={arrow} className={styles.btn_arrow} />
+        )}
       </button>
       {isSelected && (
         <div className={styles.dropdown}>
@@ -32,7 +39,7 @@ const DropBox = ({ options, content }) => {
               onClick={() => handleOptionClick(option)}
             >
               {selectedOption.includes(option) && (
-                <img src="/src/assets/check.png" alt="checkmark" />
+                <img src={check} alt="checkmark" />
               )}
               {option}
             </div>

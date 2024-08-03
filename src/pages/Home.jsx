@@ -1,5 +1,7 @@
 import DropBox from "../component/DropBox";
 import styles from "./Home.module.css";
+import searchIcon from "./static/search_icon.svg";
+import suffleIcon from "./static/shuffle_icom.svg";
 
 const Home = () => {
   return (
@@ -13,10 +15,10 @@ const Home = () => {
           <div className={styles.menu_inp}>
             <input placeholder="음식을 입력해주세요" type="text" />
             <button>
-              <img src="./src/assets/shuffle_icon.png" alt="suffle_icon" />
+              <img src={searchIcon} alt="shuffle_icon" />
             </button>
             <button>
-              <img src="./src/assets/search_icon.png" alt="search_icon" />
+              <img src={suffleIcon} alt="search_icon" />
             </button>
           </div>
         </div>
