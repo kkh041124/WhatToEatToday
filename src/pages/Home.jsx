@@ -1,3 +1,4 @@
+import Data from "../assets/Data";
 import DropBox from "../component/DropBox";
 import styles from "./Home.module.css";
 import searchIcon from "./static/search_icon.svg";
