@@ -5,7 +5,7 @@ const Data = [
     dishType: "기타",
     meatType: "기타",
     spiceLevel: 0,
-    img: {},
+    img: "/src/pages/static/피자.jpg",
   },
   {
     name: "치킨",
@@ -13,7 +13,7 @@ const Data = [
     dishType: "기타",
     meatType: "닭고기",
     spiceLevel: 0,
-    img: {},
+    img: "/src/pages/static/치킨.png",
   },
   {
     name: "떡볶이",
@@ -21,7 +21,7 @@ const Data = [
     dishType: "분식",
     meatType: "기타",
     spiceLevel: 2,
-    img: {},
+    img: "/src/pages/static/떡볶이.jpg",
   },
 ];
 
