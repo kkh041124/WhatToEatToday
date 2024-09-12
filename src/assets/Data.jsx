@@ -23,6 +23,14 @@ const Data = [
     spiceLevel: 2,
     img: "/src/pages/static/떡볶이.jpg",
   },
+  {
+    name: "비빔밥",
+    cuisineType: "한식",
+    dishType: "밥",
+    meatType: "기타",
+    spiceLevel: 0,
+    img: "/src/pages/static/떡볶이.jpg",
+  },
 ];
 
 export default Data;

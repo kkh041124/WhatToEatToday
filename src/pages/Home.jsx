@@ -17,7 +17,7 @@ const Home = () => {
   };
   const routePageHandler = () => {
     if (queryString.length > 0) navigate(`/menu/${queryString}`);
-    else navigate(`/menu/${search}`);
+    else navigate(`/detail/${search}`);
   };
 
   return (
