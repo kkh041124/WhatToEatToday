@@ -12,9 +12,17 @@ const Menu = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const cuisineTypes = searchParams.getAll("cuisineType");
+  const dishType = searchParams.getAll("dishType");
+  const meatType = searchParams.getAll("meatType");
+  const spiceLevel = searchParams.getAll("spiceLevel");
+
   const findCuisineType = Data.filter((e) =>
     cuisineTypes.includes(e.cuisineType)
   );
+  const findDishType = Data.filter((e) => dishType.includes(e.dishType));
+  const findMeatType = Data.filter((e) => meatType.includes(e.meatType));
+  const findSpiceLevel = Data.filter((e) => spiceLevel.includes(e.spiceLevel));
+
   const handleMenu = (e) => {
     setMenuName(e.target.value);
   };
@@ -28,6 +36,7 @@ const Menu = () => {
   const detailMenu = (name) => {
     navigate(`/detail/${name}`);
   };
+  if (findCuisineType || findDishType) console.log("제발");
   return (
     <div className={styles.Menu}>
       <div className={styles.Logo_container}>
@@ -61,6 +70,11 @@ const Menu = () => {
           </div>
         ))}
       </div>
+      {findCuisineType.map((e) => e.name)}
+      {findDishType.map((e) => e.name)}
+      {findMeatType.map((e) => e.name)}
+      {findSpiceLevel.map((e) => e.name)}
+      {findCuisineType.map((e) => e.name)}
     </div>
   );
 };

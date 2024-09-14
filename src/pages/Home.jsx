@@ -54,17 +54,17 @@ const Home = () => {
               queryKey="cuisineType"
             />
             <DropBox
-              options={["한식", "중식", "양식", "일식"]}
+              options={["소고기", "돼지고기", "닭고기", "기타"]}
               content={"육식 종류"}
               queryKey="meatType"
             />
             <DropBox
-              options={["한식", "중식", "양식", "일식"]}
+              options={["면", "밥", "분식", "기타"]}
               content={"요리 종류"}
               queryKey="dishType"
             />
             <DropBox
-              options={["한식", "중식", "양식", "일식"]}
+              options={[0, 1, 2, 3]}
               content={"맵기"}
               queryKey="spiceLevel"
             />
