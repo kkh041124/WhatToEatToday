@@ -8,7 +8,7 @@ const Menu = () => {
   const location = useLocation();
   const queryString = location.search;
   const navigate = useNavigate();
-  const [menuName, setMenuName] = useState();
+  const [menuName, setMenuName] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const cuisineTypes = searchParams.getAll("cuisineType");
@@ -19,22 +19,23 @@ const Menu = () => {
     setMenuName(e.target.value);
   };
   const navigateMenu = () => {
-    navigate(`/detail/${menuName}`);
+    if (!menuName.trim()) {
+      alert("메뉴명을 입력해주세요");
+    } else {
+      navigate(`/detail/${menuName}`);
+    }
   };
-  useEffect(() => {
-    findCuisineType.map((e) => (
-      <div>
-        <img src={e.img} alt={e.name} />
-      </div>
-    ));
-  }, [searchParams]);
-
+  const detailMenu = (name) => {
+    navigate(`/detail/${name}`);
+  };
   return (
     <div className={styles.Menu}>
       <div className={styles.Logo_container}>
         <div className={styles.Logo}>
-          <p>오늘</p>
-          <p>뭐 먹을까?</p>
+          <button onClick={() => navigate(-1)}>
+            <p>오늘</p>
+            <p>뭐 먹을까?</p>
+          </button>
         </div>
         <div className={styles.menu_inp}>
           <input
@@ -52,9 +53,11 @@ const Menu = () => {
       </div>
       <div className={styles.Data}>
         {findCuisineType.map((e) => (
-          <div key={styles.Data} className={styles.Data_container}>
-            <img src={e.img} alt={e.name} />
-            <p>{e.name}</p>
+          <div key={e.id} className={styles.Data_container}>
+            <button onClick={() => detailMenu(e.name)}>
+              <img src={e.img} alt={e.name} />
+              <p>{e.name}</p>
+            </button>
           </div>
         ))}
       </div>

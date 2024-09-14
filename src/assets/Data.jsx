@@ -29,7 +29,7 @@ const Data = [
     dishType: "밥",
     meatType: "기타",
     spiceLevel: 0,
-    img: "/src/pages/static/떡볶이.jpg",
+    img: "/src/pages/static/비빔밥.jpg",
   },
 ];
 

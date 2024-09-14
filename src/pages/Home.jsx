@@ -19,7 +19,10 @@ const Home = () => {
     if (queryString.length > 0) navigate(`/menu/${queryString}`);
     else navigate(`/detail/${search}`);
   };
-
+  const suffleData = () => {
+    const randomName = Math.floor(Math.random() * Data.length);
+    navigate(`/detail/${Data[randomName].name}`);
+  };
   return (
     <>
       <div className={styles.Home}>
@@ -28,8 +31,6 @@ const Home = () => {
             <p>오늘</p>
             <p>뭐 먹을까?</p>
           </div>
-          <p>쿼리스트링 : {queryString}</p>
-          <p>주소 :{window.location + queryString} </p>
 
           <div className={styles.menu_inp}>
             <input
@@ -40,7 +41,7 @@ const Home = () => {
             <button onClick={routePageHandler}>
               <img src={searchIcon} alt="search_icon" />
             </button>
-            <button>
+            <button onClick={suffleData}>
               <img src={suffleIcon} alt="shuffle_icon" />
             </button>
           </div>
