@@ -16,9 +16,19 @@ const Menu = () => {
   const meatType = searchParams.getAll("meatType");
   const spiceLevel = searchParams.getAll("spiceLevel");
 
-  const findCuisineType = Data.filter((e) =>
-    cuisineTypes.includes(e.cuisineType)
-  );
+  const findCuisineType = Data.filter((row) => {
+    const types = searchParams.get("cuisineType").split(",");
+    return types.some((type) => row.cuisineType === type);
+
+    /* same as above
+    for(const type of types) {
+      if(row.cuisineType === type) {
+        return true;
+      }
+    }
+    return false
+    */
+  });
   const findDishType = Data.filter((e) => dishType.includes(e.dishType));
   const findMeatType = Data.filter((e) => meatType.includes(e.meatType));
   const findSpiceLevel = Data.filter((e) => spiceLevel.includes(e.spiceLevel));
@@ -60,15 +70,19 @@ const Menu = () => {
           </button>
         </div>
       </div>
+      {/*
+        첨언해보건대, cuisineType, dishType, ...을 각각 map으로 보여주지 않고
+        filter 함수로 모든 조건을 통과해서 true를 반환해서 여기에 표시되도록 하는 것이 더 좋을 듯
+      */}
       <div className={styles.Data}>
-        {/* {findCuisineType.map((e) => (
+        {findCuisineType.map((e) => (
           <div key={e.id} className={styles.Data_container}>
             <button onClick={() => detailMenu(e.name)}>
               <img src={e.img} alt={e.name} />
               <p>{e.name}</p>
             </button>
           </div>
-        ))} */}
+        ))}
       </div>
       {findCuisineType.map((e) => e.name)}
       {findDishType.map((e) => e.name)}
