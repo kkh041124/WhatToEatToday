@@ -17,7 +17,8 @@ const Home = () => {
   };
   const routePageHandler = () => {
     if (queryString.length > 0) navigate(`/menu/${queryString}`);
-    else navigate(`/detail/${search}`);
+    else if (search) navigate(`/detail/${search}`);
+    else alert("메뉴를 입력해주세요");
   };
   const suffleData = () => {
     const randomName = Math.floor(Math.random() * Data.length);
