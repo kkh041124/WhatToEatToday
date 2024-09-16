@@ -26,7 +26,14 @@ body {
   align-items: center;
   padding: 20px;
 }
-
+.Logo button {
+  border: none;
+  background: none;
+  color: #3d5fda;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
 .Logo {
   display: flex;
   justify-content: flex-start;
@@ -83,18 +90,25 @@ body {
   width: 100%;
 }
 
+.ingredients h2 {
+  text-align: center;
+}
 .ingredients ul {
   border: 2px solid black;
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   gap: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .ingredients li {
   border: 1px solid gray;
   border-radius: 5px;
-  font-size: 50px;
+  font-size: 30px;
   width: 30%;
   text-align: center;
 }
@@ -107,7 +121,10 @@ body {
   align-items: center;
   gap: 10px;
 }
-
+.cookingProcess h2 {
+  font-size: 45px;
+  font-weight: 700;
+}
 .cookingProcess ul {
   display: flex;
   flex-direction: column;

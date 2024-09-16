@@ -61,20 +61,19 @@ const Menu = () => {
         </div>
       </div>
       <div className={styles.Data}>
-        {findCuisineType.map((e) => (
+        {/* {findCuisineType.map((e) => (
           <div key={e.id} className={styles.Data_container}>
             <button onClick={() => detailMenu(e.name)}>
               <img src={e.img} alt={e.name} />
               <p>{e.name}</p>
             </button>
           </div>
-        ))}
+        ))} */}
       </div>
       {findCuisineType.map((e) => e.name)}
       {findDishType.map((e) => e.name)}
       {findMeatType.map((e) => e.name)}
       {findSpiceLevel.map((e) => e.name)}
-      {findCuisineType.map((e) => e.name)}
     </div>
   );
 };
