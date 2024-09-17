@@ -29,10 +29,18 @@ const Menu = () => {
     return false
     */
   });
-  const findDishType = Data.filter((e) => dishType.includes(e.dishType));
-  const findMeatType = Data.filter((e) => meatType.includes(e.meatType));
-  const findSpiceLevel = Data.filter((e) => spiceLevel.includes(e.spiceLevel));
-
+  const findDishType = Data.filter((row) => {
+    const types = searchParams.get("dishType").split(",");
+    return types.some((type) => row.dishType === type);
+  });
+  const findMeatType = Data.filter((row) => {
+    const types = searchParams.get("spiceLevel").split(",");
+    return types.some((type) => row.spiceLevel === type);
+  });
+  const findSpiceLevel = Data.filter((row) => {
+    const types = searchParams.get("meatType").split(",");
+    return types.some((type) => row.meatType === type);
+  });
   const handleMenu = (e) => {
     setMenuName(e.target.value);
   };
@@ -46,7 +54,6 @@ const Menu = () => {
   const detailMenu = (name) => {
     navigate(`/detail/${name}`);
   };
-  if (findCuisineType || findDishType) console.log("제발");
   return (
     <div className={styles.Menu}>
       <div className={styles.Logo_container}>
