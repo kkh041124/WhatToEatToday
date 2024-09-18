@@ -9,18 +9,19 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to flex-start to allow natural content flow */
   background-color: #e0e0e0;
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh; /* Allow body to expand in height */
+  overflow: auto; /* Enable scrolling if content is larger than the viewport */
 }
 
 .Menu {
   background-color: white;
   border-radius: 35px;
   border: 1px solid black;
-  height: 90vh;
+  min-height: 90vh; /* Changed to min-height to allow it to grow */
   width: 95vw;
   display: flex;
   flex-direction: column;
@@ -114,23 +115,35 @@ body {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  flex-wrap: wrap;
+  width: 800px;
+  max-height: auto; /* Adjust height dynamically */
+}
+
+.Data_wrap {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .Data_container {
   display: flex;
   position: relative;
-  flex-wrap: wrap;
-  height: 300px;
-  width: 300px;
+  width: 30%;
 }
+
 .Data img {
   height: 100%;
   width: 100%;
   border-radius: 20px;
 }
+
 .Data_container:hover p {
   opacity: 1;
 }
+
 .Data p {
   display: flex;
   opacity: 0;
@@ -149,6 +162,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .Data button {
   background: none;
   border: none;

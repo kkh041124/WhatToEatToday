@@ -9,38 +9,40 @@ const Menu = () => {
   const queryString = location.search;
   const navigate = useNavigate();
   const [menuName, setMenuName] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-  const cuisineTypes = searchParams.getAll("cuisineType");
-  const dishType = searchParams.getAll("dishType");
-  const meatType = searchParams.getAll("meatType");
-  const spiceLevel = searchParams.getAll("spiceLevel");
+  const cuisineTypes = (searchParams.get("cuisineType") || "")
+    .split(",")
+    .filter(Boolean);
+  const meatTypes = (searchParams.get("meatType") || "")
+    .split(",")
+    .filter(Boolean);
+  const dishTypes = (searchParams.get("dishType") || "")
+    .split(",")
+    .filter(Boolean);
+  const spiceLevels = (searchParams.get("spiceLevel") || "")
+    .split(",")
+    .filter(Boolean);
 
-  const findCuisineType = Data.filter((row) => {
-    const types = searchParams.get("cuisineType").split(",");
-    return types.some((type) => row.cuisineType === type);
+  const totalQuery = Data.filter((row) => {
+    const matchesCuisineType =
+      cuisineTypes.length === 0 || cuisineTypes.includes(row.cuisineType);
+    const matchesMeatType =
+      meatTypes.length === 0 || meatTypes.includes(row.meatType);
+    const matchesDishType =
+      dishTypes.length === 0 || dishTypes.includes(row.dishType);
+    const matchesSpiceLevel =
+      spiceLevels.length === 0 ||
+      spiceLevels.includes(row.spiceLevel.toString());
 
-    /* same as above
-    for(const type of types) {
-      if(row.cuisineType === type) {
-        return true;
-      }
-    }
-    return false
-    */
+    return (
+      matchesCuisineType &&
+      matchesMeatType &&
+      matchesDishType &&
+      matchesSpiceLevel
+    );
   });
-  const findDishType = Data.filter((row) => {
-    const types = searchParams.get("dishType").split(",");
-    return types.some((type) => row.dishType === type);
-  });
-  const findMeatType = Data.filter((row) => {
-    const types = searchParams.get("spiceLevel").split(",");
-    return types.some((type) => row.spiceLevel === type);
-  });
-  const findSpiceLevel = Data.filter((row) => {
-    const types = searchParams.get("meatType").split(",");
-    return types.some((type) => row.meatType === type);
-  });
+  console.log(totalQuery);
   const handleMenu = (e) => {
     setMenuName(e.target.value);
   };
@@ -82,16 +84,17 @@ const Menu = () => {
         filter 함수로 모든 조건을 통과해서 true를 반환해서 여기에 표시되도록 하는 것이 더 좋을 듯
       */}
       <div className={styles.Data}>
-        {findCuisineType.map((e) => (
-          <div key={e.id} className={styles.Data_container}>
-            <button onClick={() => detailMenu(e.name)}>
-              <img src={e.img} alt={e.name} />
-              <p>{e.name}</p>
-            </button>
-          </div>
-        ))}
+        <div className={styles.Data_wrap}>
+          {totalQuery.map((e) => (
+            <div key={e.id} className={styles.Data_container}>
+              <button onClick={() => detailMenu(e.name)}>
+                <img src={e.img} alt={e.name} />
+                <p>{e.name}</p>
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      {findDishType.map((e) => e.name)}
     </div>
   );
 };
